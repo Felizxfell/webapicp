@@ -88,6 +88,11 @@ namespace ApiCp.Data
             return result > 0;
         }
 
+        /// <summary>
+        /// Obtiene una coleccion de clientes con sus pagos relacionados
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ClientePagosResponse> GetCustomerWithPayments(int id)
         {
             var db = DbConnection();
