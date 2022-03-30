@@ -88,6 +88,11 @@ namespace ApiCp.Data
             return result > 0;
         }
         
+        /// <summary>
+        /// Inserta un pago y actualiza la fecha del ultimo para para el cliente por medio de un storage procedure
+        /// </summary>
+        /// <param name="sp"></param>
+        /// <returns></returns>
         public async Task<bool> InsertPaymentUpdateCostumer(PagosClientesSP sp)
         {
             var db = DbConnection();

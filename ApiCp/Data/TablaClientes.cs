@@ -63,7 +63,7 @@ namespace ApiCp.Data
             var db = DbConnection();
 
             var sql = @"INSERT INTO clientes (nombre, telefono, ultimo_pago, fecha_creacion)
-                        VALUES (@Nombre, @Telefono, NOW(), NOW())";
+                        VALUES (@Nombre, @Telefono, null, NOW())";
 
             var result = await db.ExecuteAsync(sql, new { cliente.Nombre, cliente.Telefono });
 
