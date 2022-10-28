@@ -3,7 +3,7 @@ using System.Data;
 
 namespace ApiCp.Data.Tablas
 {
-    public class TablaClienteV2
+    public class TablaClientesV2
     {
         private ConexionBD _con;
 
@@ -11,7 +11,7 @@ namespace ApiCp.Data.Tablas
         /// Obtiene todos los clientes
         /// </summary>
         /// <returns></returns>
-        public DataTable GetAllCustomers()
+        public IEnumerable<DataTable> GetAllCustomers()
         {
             _con = new ConexionBD();
 
@@ -20,8 +20,7 @@ namespace ApiCp.Data.Tablas
                         FROM clientes ";
             _con.SentenciaSQL(sql);
             DataTable dt = _con.EjecutaConsulta();
-
-            return dt;
+            yield return dt;
         }
     }
 }
