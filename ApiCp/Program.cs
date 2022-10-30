@@ -13,8 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 //                                              "http://192.168.1.173:8081/").AllowAnyHeader().AllowAnyMethod();
 //                      });
 //});
-builder.Services.AddCors();
 // Add services to the container.
+builder.Services.AddCors();
+//builder.Configuration["ConnectionStrings:DefaultConnection"]
 var mysqlcon = new MysqlConfiguration(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 builder.Services.AddSingleton(mysqlcon);
@@ -36,6 +37,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseRouting();
 
 app.UseCors(x => x
